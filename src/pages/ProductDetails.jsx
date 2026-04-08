@@ -42,7 +42,7 @@ function ProductDetails() {
       navigate("/products");
     } catch (err) {
       console.log(err);
-      setError("Could not delete product.");
+      alert("Could not delete product.");
     }
   }
 
@@ -75,6 +75,12 @@ function ProductDetails() {
             <button className="btn btn-danger" onClick={handleDelete}>
               Delete Product
             </button>
+            <Link
+              to={`/edit-product/${product.id}`}
+              className="btn btn-primary"
+            >
+              Edit Product
+            </Link>
           </div>
         </div>
       </div>

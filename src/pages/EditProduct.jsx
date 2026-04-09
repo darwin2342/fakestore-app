@@ -68,7 +68,13 @@ function EditProduct() {
     }
   }
 
-  if (loading) return <h2>Loading ....</h2>;
+  if (loading) {
+    return (
+      <div className="text-center mt-5">
+        <div className="spinner-border" role="status"></div>
+      </div>
+    );
+  }
   if (error) return <h2>{error} </h2>;
 
   return (

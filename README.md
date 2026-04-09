@@ -1,16 +1,70 @@
-# React + Vite
+# 🛒 FakeStore CRUD App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full CRUD (Create, Read, Update, Delete) e-commerce-style application built with React, React Router, and the FakeStore API.
 
-Currently, two official plugins are available:
+This project demonstrates how to build a dynamic frontend application that interacts with an external API while handling user input, navigation, and state management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- View all products from the API
+- View detailed information for a single product
+- Add new products using a form (POST)
+- Edit existing products with prefilled data (PUT)
+- Delete products with confirmation modal (DELETE)
+- Dynamic routing using React Router
+- Responsive UI using React Bootstrap
+- Loading and error handling across pages
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 What I Learned
+
+- How to work with REST APIs (GET, POST, PUT, DELETE)
+- How to use React state (`useState`) and side effects (`useEffect`)
+- How to build controlled forms in React
+- How to use React Router for navigation and dynamic routes
+- How to handle loading states and API errors
+- How to build reusable UI components
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- React Router DOM
+- Bootstrap / React Bootstrap
+- FakeStore API
+- JavaScript (ES6)
+
+---
+
+## 📂 Project Structure
+
+src/
+├── components/
+│ └── NavigationBar.jsx
+├── pages/
+│ ├── Home.jsx
+│ ├── Products.jsx
+│ ├── ProductDetails.jsx
+│ ├── AddProduct.jsx
+│ └── EditProduct.jsx
+├── App.jsx
+└── main.jsx
+
+---
+
+## 🌐 API Used
+
+FakeStore API:  
+https://fakestoreapi.com
+
+⚠️ Note: This is a mock API. POST, PUT, and DELETE requests will return success responses but changes will not persist after refreshing.
+
+---
+
+## ▶️ How to Run the Project
+
+1. Clone the repository:

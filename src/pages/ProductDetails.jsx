@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -8,6 +9,7 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -47,7 +49,11 @@ function ProductDetails() {
   }
 
   if (loading) {
-    return <h2 className="text-center mt-4">Loading product details...</h2>;
+    return (
+      <div className="text-center mt-5">
+        <div className="spinner-border" role="status"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -72,7 +78,10 @@ function ProductDetails() {
             <Link to="/products" className="btn btn-secondary">
               Back to Products
             </Link>
-            <button className="btn btn-danger" onClick={handleDelete}>
+            <button
+              className="btn btn-danger"
+              onClick={() => setShowModal(true)}
+            >
               Delete Product
             </button>
             <Link
@@ -84,6 +93,26 @@ function ProductDetails() {
           </div>
         </div>
       </div>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p>Are you sure you want to delete this product?</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Cancel
+          </Button>
+
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

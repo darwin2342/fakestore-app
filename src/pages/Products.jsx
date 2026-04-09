@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -30,7 +31,11 @@ function Products() {
   }, []);
 
   if (loading) {
-    return <h2 className="text-center mt-4">Loading products...</h2>;
+    return (
+      <div className="text-center mt-5">
+        <div className="spinner-border" role="status"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -44,29 +49,7 @@ function Products() {
       <Row>
         {products.map((product) => (
           <Col key={product.id} md={4} className="mb-4">
-            <Card className="h-100">
-              <Card.Img
-                variant="top"
-                src={product.image}
-                alt={product.title}
-                style={{
-                  height: "250px",
-                  objectFit: "contain",
-                  padding: "1rem",
-                }}
-              />
-              <Card.Body className="d-flex flex-column">
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>${product.price}</Card.Text>
-                <Button
-                  as={Link}
-                  to={`/products/${product.id}`}
-                  variant="primary"
-                >
-                  View Details
-                </Button>
-              </Card.Body>
-            </Card>
+            <ProductCard product={product} />
           </Col>
         ))}
       </Row>
